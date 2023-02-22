@@ -4,12 +4,11 @@
  */
 void print_alphabet(void)
 {
-	char c;
-
-	c = 'a';
-	while (c <= 'z')
+	char ch;
+	
+	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		_putchar(c);
+		_putchar(ch);
 	}
 	_putchar('\n');
 }
