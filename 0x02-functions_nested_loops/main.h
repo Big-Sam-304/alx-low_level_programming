@@ -9,5 +9,6 @@ int add(int, int);
 int _putchar(char);
 int print(void);
 void print_alphabet(void);
+int _islower(int c);
 
 #endif
