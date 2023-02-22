@@ -14,6 +14,8 @@ void times_table(void)
 			if (product <= 9)
 			{
 				_putchar(product + '0');
+				_putchar(',');
+				_putchar(' ');
 			}
 			else if (product > 9)
 			{
@@ -21,9 +23,6 @@ void times_table(void)
 				ch2 = product % 10;
 				_putchar(ch1 + '0');
 				_putchar(ch2 + '0');
-			}
-			else if (j != 9)
-			{
 				_putchar(',');
 				_putchar(' ');
 			}
