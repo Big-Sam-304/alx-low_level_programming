@@ -14,10 +14,10 @@ void print_diagonal(int n)
 	{
 		int i, j;
 
-		if (n < 0)
-		{
-			n = n * -1;
-		}
+		/* if (n < 0)*/
+		/*{*/
+		/*	n = n * -1;*/
+		/*}*/
 		for (i = 1; i <= n; i++)
 		{
 			for (j = 1; j <= n; j++)
@@ -31,6 +31,7 @@ void print_diagonal(int n)
 					_putchar(' ');
 				}
 			}
+			_putchar('\n');
 		}
 	}
 }
