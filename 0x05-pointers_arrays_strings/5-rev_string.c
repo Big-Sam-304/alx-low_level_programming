@@ -14,7 +14,9 @@ void rev_string(char *s)
 		str++;
 		s++;
 	}
-	int i, len;
+	int i;
+
+	int len;
 
 	len = str;
 
