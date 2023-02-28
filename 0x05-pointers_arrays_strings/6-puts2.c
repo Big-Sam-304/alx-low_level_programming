@@ -1,4 +1,4 @@
-#include "mass.h"
+#include "main.h"
 /**
  * puts2 - prints out characters in a string.
  * @str: String
