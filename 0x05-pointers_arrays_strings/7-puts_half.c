@@ -6,12 +6,12 @@
 
 void puts_half(char *str)
 {
-	int len, length_of_the_string, i, n;
+	int len, mid, length_of_the_string, i, n;
 
 	len = 0;
 	while (str[len] != '\0')
 	{
-		len++
+		len++;
 	}
 	if (len % 2 == 0)
 	{
