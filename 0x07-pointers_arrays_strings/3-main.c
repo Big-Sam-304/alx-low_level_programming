@@ -19,25 +19,23 @@ int main(void)
 
 unsigned int _strspn(char *s, char *accept)
 {
-        int count;
+	unsigned int n = 0;
+	int r;
 
-        count = 0;
-        while (*s)
-        {
-                while (*accept != '\0')
-                {
-                        if (*s == *accept)
-                        {
-                                count++;
-                                break;
-                        }
-                        *accept++;
-                }
-                if (*accept == '\0')
-                {
-                        return (count);
-                }
-                *s++;
-        }
-        return (count);
+	while (*s)
+	{
+		for (r = 0; accept[r]; r++)
+		{
+			if (*s == accept[r])
+			{
+				n++;
+				break;
+			}
+			else if (accept[r + 1] == '\0')
+				return (n);
+		}
+		s++;
+	}
+	return (n);
 }
+
