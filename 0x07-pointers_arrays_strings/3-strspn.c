@@ -31,5 +31,6 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		*s++;
 	}
+	_putchar('\0');
 	return (count);
 }
