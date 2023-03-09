@@ -34,7 +34,7 @@ int sqrt_helper(int n, int g)
 	int new_guess;
 
 	new_guess = (g + (n / g)) / 2;
-	if new_guess == g
+	if (new_guess == g)
 	{
 		if (n % g == 0)
 		{
