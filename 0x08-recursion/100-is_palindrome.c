@@ -16,7 +16,7 @@ int is_palindrome(char *s)
 
 	if (s[0] == s[str_len(s) - 1])
 	{
-		return (is_palindrome(s + 1) && is_palindrome(s, str_len(s) - 2));
+		return (is_palindrome(s + 1) && is_palindrome(s[str_len(s) - 2]));
 
 	}
 	else
