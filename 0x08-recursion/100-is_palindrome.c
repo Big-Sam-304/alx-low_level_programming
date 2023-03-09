@@ -13,7 +13,7 @@ int is_palindrome(char *s)
 	{
 		return (1);
 	}
-	return (is_palindrome(s, 0, str_len));
+	return (helper_palindrome(s, 0, str_len));
 }
 
 /**
@@ -34,14 +34,14 @@ int str_len(char *s)
 	}
 }
 /**
- * is_palindrome - checks whether a string is a palindrome
+ * helper_palindrome - checks whether a string is a palindrome
  * @s: string
  * @i: rucursive iterator
  * @j: string length
  * Return: 1 if palindrome, else return 0
  */
 
-int is_palindrome(char *s, int i, int j)
+int helper_palindrome(char *s, int i, int j)
 {
 	if (*(s + i) != *(s + (len - 1)))
 	{
@@ -51,5 +51,5 @@ int is_palindrome(char *s, int i, int j)
 	{
 		return (1);
 	}
-	return (s, i + 1, j - 1);
+	return (helper_palindrome(s, i + 1, j - 1));
 }
