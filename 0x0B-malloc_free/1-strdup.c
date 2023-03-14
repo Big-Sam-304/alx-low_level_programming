@@ -47,7 +47,7 @@ int len_string(char *str)
 	i = 0;
 	count = 1;
 
-	for ( ; i != '\0'; i++)
+	for (i = 0 ; str[i]; i++)
 	{
 		count++;
 	}
