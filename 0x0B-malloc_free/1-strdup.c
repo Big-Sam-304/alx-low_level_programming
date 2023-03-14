@@ -14,22 +14,24 @@ char *_strdup(char *str)
 {
 	char *arr;
 
-	int j;
+	int j, len;
+
+	len = len_string(str);
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
 
-	arr = malloc(sizeof(char) * len_string);
+	arr = malloc(sizeof(char) * len);
 
 	if (arr == NULL)
 	{
 		return (NULL);
 	}
-	for (j = 0; j <= len_string; j++)
+	for (j = 0; j < len; j++)
 	{
-		arr[i] = str[i];
+		arr[j] = str[j];
 	}
 	return (arr);
 }
