@@ -19,14 +19,11 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	int i, j, len1, len2;
+	int i, j;
 
 	char *new_arr;
 
-	len1 = len(s1);
-	len2 = len(s2);
-
-	new_arr = (char *) malloc((len1 + len2 + 1) * sizeof(char));
+	new_arr = (char *) malloc((len(s1) + len(s2) + 1) * sizeof(char));
 	if (!new_arr)
 	{
 		return (NULL);
@@ -58,7 +55,7 @@ char *str_concat(char *s1, char *s2)
  */
 
 
-int len(*str1)
+int len(char *str1)
 {
 	int i;
 
