@@ -10,5 +10,7 @@ char *argstostr(int ac, char **av);
 char **strtow(char *str);
 int _putchar(char c);
 int len_string(char *str);
+int len_1(char *s1);
+int len_2(char *s2);
 
 #endif

@@ -11,6 +11,8 @@
 
 char *str_concat(char *s1, char *s2)
 {
+	int i, j;
+
 	if (!s1)
 	{
 		s1 = "";
@@ -19,10 +21,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	int i;
-
-	int j;
-
 	char *new_arr;
 
 	new_arr = (char *) malloc((len_1 + len_2 + 1) * sizeof(char));
