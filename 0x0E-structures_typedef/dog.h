@@ -1,5 +1,14 @@
-#ifndef MY_D0G
-#define MY_DOG
+#ifndef DOG_H
+#define DOG_H
+
+/**
+ * struct dog - defines a dog's properties
+ * @name: name of the dog
+ * @age: age of the dog
+ * @owner: owner of the dog
+ *
+ * Description: defines properties of a dog
+ */
 
 struct dog
 {
