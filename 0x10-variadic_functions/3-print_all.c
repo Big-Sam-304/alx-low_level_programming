@@ -24,7 +24,6 @@ void print_all(const char * const format, ...)
 
 	if (format)
 	{
-
 		while (format && format[i])
 		{
 			switch (format[i])
@@ -33,35 +32,26 @@ void print_all(const char * const format, ...)
 					c_val = va_arg(args, int);
 					printf("%s%c", separate, c_val);
 					break;
-
 				case 'i':
 					i_val = va_arg(args, int);
 					printf("%s%d", separate, i_val);
 					break;
-
 				case 'f':
 					f_val = va_arg(args, double);
 					printf("%s%f", separate, f_val);
 					break;
-
 				case 's':
 					s_val = va_arg(args, char*);
-
-					if (s_val)
-					{
-						printf("%s%s", separate, s_val);
-					}
-					else
+					if (!s_val)
 					{
 						printf("(nil)");
 					}
+					printf("%s%s", separate, s_val);
 					break;
-
 				default:
 					break;
 			}
 			separate = ", ";
-
 			i++;
 		}
 	}
