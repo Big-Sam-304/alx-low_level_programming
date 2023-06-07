@@ -1,4 +1,4 @@
-#endif#ifndef MAIN_H
+#ifndef MAIN_H
 #define MAIN_H
 
 void print_rev_recursion(char *s);
