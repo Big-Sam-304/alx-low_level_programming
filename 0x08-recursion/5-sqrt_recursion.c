@@ -27,6 +27,15 @@ int _sqrt_recursion(int n)
 	}
 }
 
+/**
+ * _sqrt_helper - returns the square root of n.
+ * @start: lower base value.
+ * @end: higher end value.
+ * @n: number to find square root of.
+ *
+ * Return: the square root of n.
+ */
+
 int _sqrt_helper(int n, int start, int end)
 {
 	int mid;
@@ -50,6 +59,6 @@ int _sqrt_helper(int n, int start, int end)
 	}
 	else
 	{
-		return (_sqrt_helper(n, start, end - 1));
+		return (_sqrt_helper(n, start, mid - 1));
 	}
 }
