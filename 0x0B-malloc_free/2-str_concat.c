@@ -14,38 +14,32 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int i, j, size, size_1, size_2;
+	unsigned int i, j, size1, size2;
 	char *concat;
 
-	size = 0;
-	size_1 = 0;
-	while (s1[size] != '\0')
-	{
-		size += 1;
-	}
-	while (s2[size_1] != '\0')
-	{
-		size_1 += 1;
-	}
-	size_1 += 1;
-	size_2 = size_1 + size;
+	size1 = string_size(s1);
+	size2 = string_size(s2);
 
-	if (s1[0] == '\0' || s2[0] == '\0')
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
 	}
 
-	concat = (char *)malloc(size_2 * sizeof(char));
+	concat = (char *)malloc((size1 + size2 + 1) * sizeof(char));
 	if (concat == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size1; i++)
 	{
 		concat[i] = s1[i];
 	}
-	for (j = 0; j <= size_1; j++)
+	for (j = 0; j < size2; j++)
 	{
 		concat[i + j] = s2[j];
 	}
@@ -54,3 +48,23 @@ char *str_concat(char *s1, char *s2)
 	return (concat);
 }
 
+/**
+ * string_size - returns the length of the string
+ * @str1: string to find the length of
+ *
+ * Return: length of string - 1
+ */
+
+int string_size(char *str1)
+{
+	unsigned int size1;
+
+	size1 = 0;
+
+	while (str1[size1] != '\0')
+	{
+		size1++;
+	}
+
+	return (size1);
+}
