@@ -28,10 +28,10 @@ char *argstostr(int ac, char **av)
 		{
 			args_length++;
 		}
-		total_length += args_length;
+		total_length += args_length + 1;
 	}
 
-	concat_str = malloc((total_length + 1) * sizeof(char));
+	concat_str = malloc((total_length) * sizeof(char));
 	if (concat_str == NULL)
 	{
 		return (NULL);
