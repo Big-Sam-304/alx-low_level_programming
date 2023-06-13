@@ -28,12 +28,8 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	else if (s2 == NULL && s1 == NULL)
-	{
-		return (NULL);
-	}
 
-	concat = (char *)malloc((size1 + size2 + 1) * sizeof(char));
+	concat = malloc((size1 + size2 + 1) * sizeof(char));
 	if (concat == NULL)
 	{
 		return (NULL);
