@@ -13,7 +13,7 @@
 
 char *argstostr(int ac, char **av)
 {
-	int args_length, total_length, i, index;
+	int args_length, i, index, total_length = 0;
 
 	char *concat_str;
 
@@ -21,7 +21,6 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-
 	for (i = 0; i < ac; i++)
 	{
 		args_length = 0;
