@@ -11,11 +11,12 @@
 
 void *malloc_checked(unsigned int b)
 {
-	void *digit = malloc(b);
+	void *digit;
+
+	digit = malloc(b);
 
 	if (digit == NULL)
 	{
-		fprintf(stderr, "Failed.\n");
 		exit(98);
 	}
 	return (digit);
