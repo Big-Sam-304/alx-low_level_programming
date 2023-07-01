@@ -5,11 +5,13 @@
  * struct lists - structure of a linked list
  * @str: characters in the linked list
  * @next: pointer to the address of the next linked list.
+ * @len: length of the string.
  *
  */
 
-typedef struct lists{
+typedef struct list{
 	char *str;
+	unsigned int len;
 	struct list *next;
 } list_t;
 
