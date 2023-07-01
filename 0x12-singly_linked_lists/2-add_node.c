@@ -39,7 +39,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (new_str == NULL)
 	{
-		free(new_str);
+		free(new_node);
 		return (NULL);
 	}
 
