@@ -10,37 +10,34 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t letters_r, total_letters_r = 0;
+	ssize_t letters_r, letters_w, file;
 
-	char buffer[1024];
-
-	FILE *file = fopen(filename, "r");
+	char *buffer;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
 
-	if (file == NULL)
+	file = open(filename, O_RDONLY);
+
+	if (file == -1)
 	{
 		return (0);
 	}
 
-	while (total_letters_r < (ssize_t)letters &&
-		(letters_r = fread(buffer, sizeof(char), sizeof(buffer), file)) > 0)
+	buffer = malloc(sizeof(char) * letters);
+
+	letters_r = read(file, buffer, letters);
+
+	letters_w = write(STDOUT_FILENO, buffer, letters_r);
+
+	if (letters_w == -1 || letters_w != letters_r)
 	{
-
-		if (fwrite(buffer, sizeof(char), letters_r, stdout) !=
-			(unsigned long int)letters_r)
-		{
-			fclose(file);
-			return (0);
-		}
-
-		total_letters_r += letters_r;
-
+		return (0);
 	}
 
-	fclose(file);
-	return (total_letters_r);
+	free(buffer);
+	close(file);
+	return (letters_w);
 }
