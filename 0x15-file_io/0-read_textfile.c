@@ -30,7 +30,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		(letters_r = fread(buffer, sizeof(char), sizeof(buffer), file)) > 0)
 	{
 
-		if (fwrite(buffer, sizeof(char), letters_r, stdout) != (long unsigned int)letters_r)
+		if (fwrite(buffer, sizeof(char), letters_r, stdout) !=
+			(unsigned long int)letters_r)
 		{
 			fclose(file);
 			return (0);
