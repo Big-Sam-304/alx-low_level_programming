@@ -11,7 +11,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, bytes_w, file_flags, file_permissions;
+	int fd, bytes_w, file_flags, file_permissions, len;
 
 	if (filename == NULL)
 	{
@@ -27,9 +27,16 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
+	len = 0;
+
+	while (text_content[i])
+	{
+		len++;
+	}
+
 	if (text_content != NULL)
 	{
-		bytes_w = write(fd, text_content, strlen(text_content));
+		bytes_w = write(fd, text_content, len);
 		if (bytes_w == -1)
 		{
 			close(fd);
