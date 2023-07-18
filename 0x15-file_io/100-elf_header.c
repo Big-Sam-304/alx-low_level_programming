@@ -24,10 +24,10 @@ void print_error(const char *msg)
  * Return: 0 on success
  */
 
-int elf_info(const char *elf_filename)
+Elf64_Ehdr elf_info(const char *elf_filename)
 {
 	int fd;
-	Elf64 elf_header;
+	Elf64_Ehdr elf_header;
 
 	fd = open(elf_filename, O_RDONLY);
 	if (fd == -1)
@@ -35,7 +35,7 @@ int elf_info(const char *elf_filename)
 		print_error("Error: Cannot open file");
 	}
 
-	if (read(fd, &elf_header, sizeof(Elf64)) != sizeof(Elf64))
+	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 	{
 		close(fd);
 		print_error("Error: Cannot read ELF header");
@@ -48,7 +48,7 @@ int elf_info(const char *elf_filename)
 	}
 	close(fd);
 
-	return (0);
+	return (elf_header);
 }
 
 /**
@@ -62,15 +62,11 @@ int elf_info(const char *elf_filename)
 int main(int argc, char *argv[])
 {
 	unsigned long int i;
-	Elf64 elf_header;
+	Elf64_Ehdr elf_header = elf_info(argv[1]);
 
 	if (argc != 2)
 	{
 		print_error("Usage: elf_header elf_filename");
-	}
-	if (elf_info(argv[1]) == 98)
-	{
-		exit(98);
 	}
 
 	printf("Magic: ");
