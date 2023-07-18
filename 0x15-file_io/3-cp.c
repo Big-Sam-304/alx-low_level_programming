@@ -33,7 +33,10 @@ int copy_content(const char *file_from, const char *file_to)
 
 	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
-	bytes_read = read(fd_from, buffer, BUFFER_SIZE);
+	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(fd_to, buffer, bytes_read);
+	}
 	if (bytes_read == -1 || fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
@@ -41,8 +44,6 @@ int copy_content(const char *file_from, const char *file_to)
 		close(fd_to);
 		exit(98);
 	}
-
-	bytes_written = write(fd_to, buffer, bytes_read);
 	if (bytes_written == -1 || fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
